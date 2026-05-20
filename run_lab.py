@@ -9,7 +9,7 @@ times = []
 exe_name = "Lab1.exe" 
 
 if not os.path.exists(exe_name):
-    print(f"ОШИБКА: Файл {exe_name} не найден!")
+    print(f"ОШИБКА: Файл {exe_name} не найден")
     exit(1)
 
 for N in sizes:
@@ -39,7 +39,7 @@ for N in sizes:
     if np.array_equal(C_cpp, C_py):
         print(f"Время выполнения C++: {time_ms} мс")
     else:
-        print("  [ОШИБКА] Результаты не совпадают.")
+        print("Результаты не совпадают.")
 
 plt.figure(figsize=(8, 5))
 plt.plot(sizes, times, marker='o', linestyle='-', color='b')
