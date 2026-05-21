@@ -6,8 +6,7 @@
 ## Ход работы
 ## Оборудование
 <img width="610" height="580" alt="изображение" src="https://github.com/user-attachments/assets/d96ccfd3-0dc2-4cfd-819c-8fcec2997a12" />
-<img width="1157" height="660" alt="изображение" src="https://github.com/user-attachments/assets/1a1d7a94-8b05-4e26-8fc7-d94896f15f3f" />
-(третий столбец)
+<img width="673" height="641" alt="изображение" src="https://github.com/user-attachments/assets/22d4e8de-c35e-4f45-8fb5-08aef8cfe853" />
 
 Исходный код перемножения матриц из Лабораторной работы №1 был модифицировандля работы с CUDA C++. Были проведены тесты для разных конфигураций сетки блоков и размеров матриц. Для автоматизации проведения тестов используется скрипт `run_lab.py`, который запускает скомпилированный `Lab4.exe` с разными параметрами.
 
