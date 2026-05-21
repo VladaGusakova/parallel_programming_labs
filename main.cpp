@@ -4,6 +4,7 @@
 #include <chrono>
 #include <stdexcept>
 #include <string>
+#include <omp.h>
 
 using namespace std;
 
@@ -28,8 +29,8 @@ void write_matrix(const string& filename, const vector<int>& matrix, int N) {
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 5) {
-        cerr << "Usage: " << argv[0] << " <N> <file_A> <file_B> <file_out>\n";
+    if (argc != 6) {
+        cerr << "Usage: " << argv[0] << " <N> <file_A> <file_B> <file_out> <num_threads>\n";
         return 1;
     }
 
@@ -37,6 +38,7 @@ int main(int argc, char* argv[]) {
     string file_a = argv[2];
     string file_b = argv[3];
     string file_out = argv[4];
+    int num_threads = stoi(argv[5]);
 
     vector<int> A(N * N);
     vector<int> B(N * N);
@@ -45,8 +47,11 @@ int main(int argc, char* argv[]) {
     read_matrix(file_a, A, N);
     read_matrix(file_b, B, N);
 
+    omp_set_num_threads(num_threads);
+
     auto start = chrono::high_resolution_clock::now();
 
+    #pragma omp parallel for
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
             int sum = 0;
